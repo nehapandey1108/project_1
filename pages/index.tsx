@@ -8,6 +8,7 @@ import { Slider3 } from '../components/sliders/slider3';
 import { Slider4 } from '../components/sliders/slider4';
 import { Slider5 } from '../components/sliders/slider5';
 import {Slider2 } from '../components/sliders/slider2';
+import { Todo } from '../components/Todo';
 // import card1 from '../public/card1.svg';
 // import card2 from '../public/card2.svg';
 // import card3 from '../public/card3.svg';
@@ -24,14 +25,15 @@ const imagesItems = [
 
 const Home: NextPage = () => {
   return (
-    // <div>
-     <div className="h-screen w-screen overflow-hidden bg-red-300  mt-96 mr-3">
-      <main  className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
+     <div>
+    {/* //  <div className="h-screen w-screen overflow-hidden bg-red-300  mt-96 mr-3">
+       <main  className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center"> */}
         
-        <Carousel items={imagesItems} />
+        {/* <Carousel items={imagesItems} /> */}
+        <Todo/>
        
        
-      </main> 
+      {/* </main>  */}
     {/* <Cards/> */}
  
     {/* <Carousel items={imagesItems} />

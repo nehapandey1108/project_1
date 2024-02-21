@@ -14,6 +14,7 @@ export interface CarouselProps {
 
 export default function Carousel({ width, height, items }: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  
 
   function handleNextItemBtn() {
     setActiveIndex((prev) => (prev + 1) % items.length);
@@ -26,7 +27,7 @@ export default function Carousel({ width, height, items }: CarouselProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNextItemBtn();
-    }, 1000); // Change the interval time as per your requirement (5000 milliseconds = 5 seconds)
+    }, 500); // Change the interval time as per your requirement (5000 milliseconds = 5 seconds)
 
     return () => clearInterval(interval);
   }, [activeIndex]); // Run effect whenever activeIndex changes
