@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-import CarouselItem from './CarouselItem';
-import CarouselIndicator from './CarouselIndicator';
+import CarouselItem from "./CarouselItem";
+import CarouselIndicator from "./CarouselIndicator";
 
-//import {IoIosArrowBack} from 'react-icons/io';
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { Slider1 } from "../sliders/slider1";
 
 export interface CarouselProps {
   width?: number;
@@ -15,44 +16,32 @@ export default function Carousel({ width, height, items }: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   function handleNextItemBtn() {
-    setActiveIndex((prev) => {
-      return prev + 1 < items.length ? prev + 1 : prev;
-    });
+    setActiveIndex((prev) => (prev + 1) % items.length);
   }
 
   function handlePrevItemBtn() {
-    setActiveIndex((prev) => {
-      return prev - 1 >= 0 ? prev - 1 : prev;
-    });
+    setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNextItemBtn();
+    }, 1000); // Change the interval time as per your requirement (5000 milliseconds = 5 seconds)
+
+    return () => clearInterval(interval);
+  }, [activeIndex]); // Run effect whenever activeIndex changes
 
   return (
     <div className="carousel-container">
-      {activeIndex > 0 && (
-        <button
-          className="carousel-btn-switch-card-left carousel-btn-switch-card"
-          onClick={handlePrevItemBtn}
-        >
-         {/* <IoIosArrowBack /> */}
-        </button>
-      )}
+      <IoIosArrowBack className="carousel-control" onClick={handlePrevItemBtn} />
+      
       {items?.map((item, index) => (
         <CarouselItem key={index} index={index} activeIndex={activeIndex}>
           {item}
         </CarouselItem>
       ))}
-      {activeIndex < items.length - 1 && (
-        <button
-          className="carousel-btn-switch-card-right carousel-btn-switch-card"
-          onClick={handleNextItemBtn}
-        >
-          {/* <IoIosArrowBack
-            style={{
-              transform: 'rotate(180deg)',
-            }}
-          /> */}
-        </button>
-      )}
+
+      <IoIosArrowForward className="carousel-control" onClick={handleNextItemBtn} />
 
       <CarouselIndicator
         activeIndex={activeIndex}
