@@ -79,7 +79,7 @@
 }
 
 .flip-card-front {
-  background-color: #bbb;
+  background-color:#F2E0FF;
   color: black;
 }
 
@@ -99,4 +99,7 @@ color: #48166E;
 }
 .note{
   background-color:#F2E0FF;
+}
+.cycling{
+  color: #48166E;
 }
