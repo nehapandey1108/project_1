@@ -13,23 +13,24 @@ export const Todo = () => {
               <Image
                 src={pic1}
                 alt="Avatar"
-                className="w-48 h-48 object-cover rounded-xl  ml-12 my-6 "
+                className="w-40 h-40 object-cover rounded-xl  ml-12   mt-6"
               />
-               <h1 className="cycling font-bold flex justify-center text-2xl ">CYCLING</h1>
+               <h1 className=" pt-1 cycling  flex justify-center text-3xl font-extrabold  ">CYCLING</h1>
             </div>
             <div className="flip-card-back  w-full h-full rounded-xl  pl-6  ">
               <h1 className="title text-sm font-bold    pt-14 pl-6 ">
-                TITLE
+                RUNNING
               </h1>
-              <p className="cycling text-md pl-6">cycling Task</p>
-              <div className="note-div rounded-lg pl-2 pt-2 mt-4 ml-4 mx-8  ">
-            <div className="note border rounded-3xl w-16  ">
-              <p className=" pl-2 ">Note </p>
-            </div>
+              <p className="cycling text-sm pl-6">cycling Task</p>
+              <div className="note-div rounded-lg pl-2 pt-1 mt-4 ml-4 mx-8 mb-18  ">
+              <div className="badge text-sm py-3  border-0 rounded-4xl">Note</div>
+            
+               <textarea className=" textarea h-full overflow-y-auto  mt-2 ml-0   text-sm overflow-hidden text-and-tags w-full  font-medium ">
+                 A lazy frog jump over the sand  dunes.
+              </textarea>
+            
 
-            <p className="text-and-tags mt-2 ml-0 font-thin  text-sm">
-              Lorem ipsum dolor sit. Lorem ipsum dolor,
-            </p>
+
           </div>
             </div>
             
